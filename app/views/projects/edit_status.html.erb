@@ -1,0 +1,9 @@
+<%= form_for(@todo, url: update_status_project_path) do |form| %>
+  <div class="field">
+  	Todo Status: <%= form.select :status, Todo.statuses.keys  %>
+	</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

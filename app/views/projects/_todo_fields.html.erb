@@ -1,0 +1,15 @@
+<div class='nested-fields'>
+    <div class="field">
+        Todo Title: <%= f.text_field :title %>
+    </div>
+
+    <div class="field">
+        Todo User: <%= f.select :user_id, options_for_select(User.where(role: 1).select("id, name").collect{|user| [user.name, user.id]}, selected: f.object.user_id), prompt: "Select User" %>
+    </div>
+
+    <div class="field">
+    	Todo Status: <%= f.select :status, Todo.statuses.keys  %>
+	</div>
+        <%= link_to_remove_association "remove task", f %>
+
+</div>    
